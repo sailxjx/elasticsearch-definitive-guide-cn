@@ -1,29 +1,20 @@
-[[full-text-search]]
-== Full-Text Search
+## 全文搜索
 
-Now that we have covered the simple case of searching for structured data,
-it is time to ((("full text search")))explore _full-text search_: how to search within full-text fields in order to find the most relevant documents.
+现在我们已经了解了搜索结构化数据的一些简单例子，是时候来探索_全文搜索_了：怎样从全文字段中找出最相关的文档。
 
-The two most important aspects of ((("relevance")))full-text search are as follows:
+下面是全文搜索的两个做重要的部分：
 
-Relevance::
+相关性：
+根据查询条件将结果按照相关性排序的能力，相关性由检索词频率/反向文档频率(TF/IDF)，坐标接近度，模糊匹配，或其他的一些算法来计算。
 
-    The ability to rank results by how relevant they are to
-    the given query, whether relevance is calculated using
-    TF/IDF (see <<relevance-intro>>), proximity to a geolocation,
-    fuzzy similarity, or some other algorithm.
+分析：
+将一段文本分解成明确，规范的表征的过程，用以创建和查询倒排索引
 
-Analysis::
+只要我们在讨论相关性或分析，我们就是在谈论查询（queries），而不是过滤（filters）。
 
-    The process of converting a block of text into distinct, normalized tokens
-    (see <<analysis-intro>>) in order to (a) create an inverted index and
-    (b) query the inverted index.
+### 词和全文文本的对比
 
-As soon as we talk ((("analysis")))about either relevance or analysis, we are in the territory
-of queries, rather than filters.
 
-[[term-vs-full-text]]
-=== Term-Based Versus Full-Text
 
 While all queries perform some sort of relevance calculation, not all queries
 have an analysis phase.((("full text search", "term-based versus")))((("term-based queries"))) Besides specialized queries like the `bool` or
